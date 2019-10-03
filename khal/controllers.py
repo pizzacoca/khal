@@ -342,7 +342,10 @@ def new_from_string(collection, calendar_name, conf, info, location=None,
                     format=None, env=None):
     """construct a new event from a string and add it"""
     info = parse_datetime.eventinfofstr(
-        info, conf['locale'], adjust_reasonably=True, localize=False,
+        info, conf['locale'],
+        conf['default']['default_timedelta_date'],
+        conf['default']['default_timedelta_datetime'],
+        adjust_reasonably=True, localize=False
     )
     new_from_args(
         collection, calendar_name, conf, format=format, env=env,
