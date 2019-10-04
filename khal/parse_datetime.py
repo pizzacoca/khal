@@ -315,9 +315,10 @@ def guesstimedeltafstr(delta_string):
     return res
 
 
-def guessrangefstr(daterange, locale, adjust_reasonably=False,
-                   default_timedelta_date=dt.timedelta(days=1),
-                   default_timedelta_datetime=dt.timedelta(hours=1),
+def guessrangefstr(daterange, locale,
+                   default_timedelta_date,
+                   default_timedelta_datetime,
+                   adjust_reasonably=False,
                    ):
     """parses a range string
 
@@ -456,10 +457,10 @@ def eventinfofstr(info_string, locale, default_duration_date, default_duration_d
         try:
             start, end, allday = guessrangefstr(
                 ' '.join(parts[0:i]), locale,
+                default_duration_date,
+                default_duration_datetime,
                 adjust_reasonably=adjust_reasonably,
-                default_duration_date=default_duration_date,
-                default_duration_datetime=default_duration_datetime
-            )
+                )
         except (ValueError, DateTimeParseError):
             continue
         if start is not None and end is not None:
