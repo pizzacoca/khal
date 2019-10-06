@@ -228,6 +228,8 @@ def config_checks(
                     'type': _get_vdir_type(vdir),
                     'readonly': False,
                     'priority': 10,
+                    'default_date_duration': '1d',
+                    'default_datetime_duration': '1h'
                     }
 
         # get color from config if not defined in vdir

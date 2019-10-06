@@ -70,6 +70,12 @@ readonly = boolean(default=False)
 # *calendars* subsection will be used.
 type = option('calendar', 'birthdays', 'discover', default='calendar')
 
+# Setting the default date duration adding a new AllDay  event
+default_duration_date = timedelta(default='1d')
+
+# Setting the default datime duration adding a new event
+default_duration_datetime = timedelta(default='1h')
+
 [sqlite]
 # khal stores its internal caching database here, by default this will be in the *$XDG_DATA_HOME/khal/khal.db* (this will most likely be *~/.local/share/khal/khal.db*).
 path = expand_db_path(default=None)
@@ -203,13 +209,6 @@ highlight_event_days = boolean(default=False)
 # Controls for how many days into the future we show events (for example, in
 # `khal list`) by default.
 timedelta = timedelta(default='2d')
-
-# Define the defaut duration for an allday event
-default_duration_date = timedelta(default='1d')
-
-# Define the default duration for an event
-default_duration_datetime = timedelta(default='1h')
-
 
 # The view section contains configuration options that effect the visual appearance
 # when using khal and ikhal.

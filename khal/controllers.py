@@ -41,6 +41,7 @@ from .icalendar import (cal_from_ics, new_event as new_vevent, split_ics,
 from .khalendar.vdir import Item
 from .terminal import merge_columns
 
+
 logger = logging.getLogger('khal')
 
 
@@ -343,8 +344,8 @@ def new_from_string(collection, calendar_name, conf, info, location=None,
     """construct a new event from a string and add it"""
     info = parse_datetime.eventinfofstr(
         info, conf['locale'],
-        conf['default']['default_duration_date'],
-        conf['default']['default_duration_datetime'],
+        conf['calendars'][calendar_name]['default_duration_date'],
+        conf['calendars'][calendar_name]['default_duration_datetime'],
         adjust_reasonably=True, localize=False
     )
     new_from_args(
